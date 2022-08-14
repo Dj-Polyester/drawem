@@ -1,0 +1,340 @@
+@import "variables";
+
+body {
+  width: 100%;
+  position: relative;
+  background-color: $back-color;
+}
+
+.butt-txt {
+  color: $butt-txt;
+  margin: auto;
+}
+
+.light-emph-txt {
+  color: $light-txt-color;
+}
+
+.no-emph-txt {
+  color: $norm-txt-color;
+}
+
+.reg-emph-txt {
+  color: $pri-color;
+}
+
+.semi-emph-txt {
+  color: $pri-color-semi-bold;
+}
+
+.bold-emph-txt {
+  color: $pri-color-bold;
+}
+
+.mini-txt {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.norm-txt {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.semi-large-txt {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.large-txt {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.add-margin {
+  margin: 5px;
+}
+
+.bold-txt {
+  font-weight: bold;
+}
+
+a {
+
+  &:link,
+  &:visited {
+    color: $pri-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $pri-color-semi-bold;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.panel {
+  width: 100%;
+}
+
+.top-panel {
+  position: fixed;
+  top: 0;
+  height: $top-panel-height;
+  z-index: 2;
+}
+
+.bottom-panel {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $bottom-panel-height;
+}
+
+.butt-generic {
+  border: none;
+  background-color: $butt-color;
+  height: 32px;
+  transition: 0.2s;
+
+  display: flex;
+  align-items: center;
+
+  // -webkit-transform-style: preserve-3d;
+  // -webkit-backface-visibility: hidden;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $pri-color-semi-bold;
+  }
+
+  &:active {
+    background-color: $pri-color-bold;
+  }
+}
+
+.lm-generic {
+  font-family: $def-font;
+  border-radius: 16px;
+}
+
+input {
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $inp-cursor;
+  vertical-align: middle;
+  background-color: $inp-back;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid $pri-border;
+  outline: none;
+
+  &:focus {
+    background-color: #f8f8f8;
+  }
+}
+
+textarea {
+  resize: none;
+  height: 30px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+
+  color: $inp-cursor;
+  padding: 5px 12px;
+  border: 1px solid $pri-border;
+
+  &:focus {
+    background-color: #f8f8f8;
+  }
+}
+
+///////////////////////////
+//the dropdown selector///
+/////////////////////////
+select {
+  background: url(/static/icons/downarrow.svg);
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+  appearance: none;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $inp-cursor;
+  vertical-align: middle;
+  background-color: $inp-back;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid $pri-border;
+  outline: none;
+}
+
+/////////////////////////////////////
+/// The left side navigation menu///(W3Schools)
+///////////////////////////////////
+.lnav {
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Stay on top */
+  top: 60px;
+  /* Stay at the top */
+  left: 0;
+}
+
+.rnav {
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Stay on top */
+  top: 60px;
+  /* Stay at the top */
+  right: 0;
+}
+
+.nav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+
+  background-color: $sec-nav;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.4s;
+  /* 0.4 second transition effect to slide in the nav */
+}
+
+.user-photo {
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: $pri-nav;
+}
+
+.user-name {
+  position: absolute;
+  width: 200px;
+  top: 20px;
+  left: 80px;
+  margin: 10px;
+  color: $pri-nav;
+
+  max-width: 200px;
+  max-height: 45px;
+  border-radius: 0;
+  overflow: hidden;
+  margin: auto;
+}
+
+#user-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; //important
+}
+
+/* The navigation menu links */
+.options {
+  position: absolute;
+  top: 100px; //important
+  width: 100%;
+  height: 690px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-lm,
+.nav a {
+  width: 100%;
+  margin: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: $pri-nav;
+}
+
+.nav a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.nav a img {
+  margin-right: 5px;
+}
+
+.nav div a {
+  width: 200px;
+}
+
+////////////////////////////////////////////////////////
+//hamburger button/////////////////////////////////////
+//https://github.com/codeSTACKr/hamburger-animation///
+#opt-butt {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+#hamburg-logo {
+  width: 20px;
+  height: 3px;
+  background: #363636;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+#hamburg-logo::before,
+#hamburg-logo::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background: #363636;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+#hamburg-logo::before {
+  transform: translateY(-7px);
+}
+
+#hamburg-logo::after {
+  transform: translateY(7px);
+}
+
+/* ANIMATION */
+#opt-butt.open #hamburg-logo {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+#opt-butt.open #hamburg-logo::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+#opt-butt.open #hamburg-logo::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
