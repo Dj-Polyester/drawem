@@ -1,10 +1,26 @@
 //https://codepen.io/kosarh79/pen/wqXGdE
+
+var topPanelInputs = document.getElementsByClassName("top-panel-input");
+
 var offset = [0, 0];
 var isDownOnCanvas = false;
 
 var canvasPos = {
     x: canvas.offsetLeft,
     y: canvas.offsetTop,
+}
+
+function centerCanvas() {
+    const { x, y } =
+        getCellPosAsPixels({
+            x: topPanelInputs[0].value,
+            y: topPanelInputs[1].value
+        })
+    canvasPos.x = document.body.clientWidth / 2 - x + "px";
+    canvasPos.y = document.body.clientHeight / 2 - y + "px";
+
+    canvas.style.left = canvasPos.x;
+    canvas.style.top = canvasPos.y;
 }
 
 function moveCanvasTo(pos) {

@@ -14,6 +14,12 @@ function moveCanvasBy(oldpos, delta) {
     return newpos;
 }
 
+function drawOnCanvas() {
+    for (const key in drawing) {
+        fillCellOnCanvas(str2coo(key), drawing[key]);
+    }
+}
+
 function scaleCanvas(pm) {
     clearCanvas();
     canvasMoveX = pm * canvas.width * ZOOM_CONSTANT;
@@ -23,6 +29,7 @@ function scaleCanvas(pm) {
     cellWidth -= pm * cellWidth * ZOOM_CONSTANT;
     cellHeight -= pm * cellHeight * ZOOM_CONSTANT;
     addGridOnCanvas();
+    drawOnCanvas();
     deltaTmp = {
         x: canvasMoveX / 2,
         y: canvasMoveY / 2,
@@ -45,6 +52,5 @@ document.body.addEventListener('wheel', function (event) {
     delta.y /= deltaNormal;
     delta.x *= ZOOM_MOVE_MULTIPLER;
     delta.y *= ZOOM_MOVE_MULTIPLER;
-    console.log(delta);
     canvasPos = moveCanvasBy(canvasPos, delta);
 }, true);

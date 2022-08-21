@@ -1,4 +1,4 @@
-@import "variables";
+@import "constants";
 
 body {
   width: 100%;
@@ -55,6 +55,10 @@ body {
   margin: 5px;
 }
 
+.add-padding {
+  padding: 5px;
+}
+
 .bold-txt {
   font-weight: bold;
 }
@@ -80,8 +84,21 @@ a {
   width: 100%;
 }
 
+.container {
+  border: 1px solid $pri-border;
+  background-color: $front-color;
+}
+
+.containerrbig {
+  border: 1px solid $pri-border;
+  background-color: $front-color;
+  border-radius: 50px;
+}
+
 .top-panel {
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   height: $top-panel-height;
   z-index: 2;
@@ -120,8 +137,8 @@ a {
 }
 
 .lm-generic {
-  font-family: $def-font;
   border-radius: 16px;
+  font-family: $def-font;
 }
 
 input {
@@ -134,6 +151,7 @@ input {
   background-repeat: no-repeat;
   background-position: right 8px center;
   border: 1px solid $pri-border;
+  border-radius: 16px;
   outline: none;
 
   &:focus {
@@ -219,29 +237,6 @@ select {
   /* 0.4 second transition effect to slide in the nav */
 }
 
-.user-photo {
-  margin: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: $pri-nav;
-}
-
-.user-name {
-  position: absolute;
-  width: 200px;
-  top: 20px;
-  left: 80px;
-  margin: 10px;
-  color: $pri-nav;
-
-  max-width: 200px;
-  max-height: 45px;
-  border-radius: 0;
-  overflow: hidden;
-  margin: auto;
-}
-
 #user-part {
   position: absolute;
   top: 0;
@@ -285,7 +280,6 @@ select {
 //hamburger button/////////////////////////////////////
 //https://github.com/codeSTACKr/hamburger-animation///
 #opt-butt {
-  position: fixed;
   display: flex;
   align-items: center;
   top: 0;

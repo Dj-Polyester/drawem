@@ -5,7 +5,7 @@
     <title>ProFind</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/normalize.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/theme1/variables.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/theme1/constants.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/theme1/base.css') }}" />
     {% block style %}{% endblock %}
 
@@ -43,10 +43,11 @@
             <a class="lm-generic bold-txt nav-sub-lm" href="#">Turkish</a>
         </div>
     </div>
-    <header class="top-panel panel">
+    <header class="container top-panel panel">
         <div title="Options" id="opt-butt">
             <div id="hamburg-logo"></div>
         </div>
+        {% block panel %}{% endblock %}
     </header>
 
     {% block body %}{% endblock %}
@@ -55,8 +56,9 @@
         <a href="" class="add-margin lm-generic mini-txt bold-txt">TERMS</a>
         <a href="" class="add-margin lm-generic mini-txt bold-txt">CONTACT</a>
     </footer>
-    {% block script %}{% endblock %}
+    <script src="{{ url_for('static', filename = 'src/constants.js') }}"></script>
     <script src="{{ url_for('static', filename = 'src/main.js') }}"></script>
+    {% block script %}{% endblock %}
 </body>
 
 </html>

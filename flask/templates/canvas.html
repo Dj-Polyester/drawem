@@ -3,10 +3,28 @@
 
 {% block style %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/theme1/canvas.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/theme1/toolbar.css') }}" />
 {% endblock %}
 
 {% block body %}
+<div class="toolbar lm-generic container">
+    <div id="picker" class="add-margin"></div>
+    <span class="add-margin lm-generic colors">HEX:</span>
+    <span class="add-margin lm-generic colors">RGB:</span>
+    <span class="add-margin lm-generic colors">HSL:</span>
+    <div id="coordinates" class="add-margin">
+        <input type="text" placeholder="x" class="add-margin lm-generic top-panel-input" maxlength="2">
+        <input type="text" placeholder="y" class="add-margin lm-generic top-panel-input" maxlength="2">
+        <button id="focus-button" class="add-margin lm-generic butt-generic"
+            title="Centers the cell with the given coordinates" onclick="centerCanvas()">
+            <span class="lm-generic bold-txt norm-txt butt-txt">Focus</span>
+        </button>
+    </div>
+</div>
+
+
 <canvas class="canvas"></canvas>
+<div class="hint add-padding lm-generic light-emph-txt mini-txt container"></div>
 {% endblock %}
 
 {% block script %}
@@ -14,4 +32,6 @@
 <script src="{{ url_for('static', filename='src/canvas_hover.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas_drag.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas_zoom.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+<script src="{{ url_for('static', filename='src/toolbar.js') }}"></script>
 {% endblock %}

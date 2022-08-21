@@ -1,4 +1,4 @@
-@import "variables";
+@import "constants";
 
 body {
     background-color: #24292e;
@@ -6,9 +6,20 @@ body {
     overflow: hidden;
 }
 
+.top-panel-input {
+    width: 2ch;
+}
+
 .panel {
     background-color: $front-color;
     border: 1px solid $pri-border;
+}
+
+.hint {
+    position: absolute;
+    visibility: hidden;
+    top: 0px;
+    left: 0px;
 }
 
 .canvas {

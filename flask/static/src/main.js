@@ -1,6 +1,10 @@
 const options = document.getElementById("options");
 const optBtn = document.getElementById("opt-butt");
 
+
+var rmUnit = (str, unit) => 0 | str.slice(0, -unit.length);
+var rmPx = (str) => rmUnit(str, "px");
+
 let optOpen = false;
 optBtn.addEventListener("click", () => {
   if (!optOpen) {

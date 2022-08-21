@@ -1,0 +1,19 @@
+@import "constants";
+
+.toolbar {
+    position: fixed;
+    top: $toolbar-padding+$top-panel-height;
+    left: $toolbar-padding;
+    z-index: 2;
+}
+
+.colors {
+    display: block;
+    width: 100%;
+}
+
+#coordinates {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
