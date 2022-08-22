@@ -1,6 +1,6 @@
 //https://codepen.io/kosarh79/pen/wqXGdE
 
-var topPanelInputs = document.getElementsByClassName("top-panel-input");
+var topPanelInputs = document.getElementsByClassName("coo-input");
 
 var offset = [0, 0];
 var isDownOnCanvas = false;

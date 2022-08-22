@@ -34,15 +34,11 @@ function fillCellOnCanvasSetup(cellpos) {
     if (currColor === undefined)
         return CELL_FILL_STYLE;
 
-    currColorRgb = hex2rgb(currColor);
+    const currColorRgb = hex2rgb(currColor);
 
     const resultRgb = add(subtract(currColorRgb, canvasBackColorRgb), cellFillStyleRgb);
     return rgb2hex(
-        {
-            r: clampRGB(resultRgb.r),
-            g: clampRGB(resultRgb.g),
-            b: clampRGB(resultRgb.b),
-        }
+        resultRgb.map(i => clampRGB(i))
     );
 }
 function fillCellOnCanvas(cellpos, color) {

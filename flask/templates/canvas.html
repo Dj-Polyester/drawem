@@ -15,20 +15,26 @@
     </div>
     <div class="colors">
         <span class="add-margin lm-generic">RGB:</span>
-        <input type="text" placeholder="R" class="add-margin lm-generic color-input" maxlength="3">
-        <input type="text" placeholder="G" class="add-margin lm-generic color-input" maxlength="3">
-        <input type="text" placeholder="B" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="number" placeholder="R" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
+        <input type="number" placeholder="G" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
+        <input type="number" placeholder="B" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
     </div>
     <div class="colors">
         <span class="add-margin lm-generic">HSL:</span>
-        <input type="text" placeholder="H" class="add-margin lm-generic color-input" maxlength="3">
-        <input type="text" placeholder="S%" class="add-margin lm-generic color-input" maxlength="3">
-        <input type="text" placeholder="L%" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="number" placeholder="H" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="360">
+        <input type="number" placeholder="S%" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="100">
+        <input type="number" placeholder="L%" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="100">
     </div>
 
     <div id="coordinates" class="add-margin">
-        <input type="text" placeholder="x" class="add-margin lm-generic top-panel-input" maxlength="2">
-        <input type="text" placeholder="y" class="add-margin lm-generic top-panel-input" maxlength="2">
+        <input type="number" placeholder="x" class="add-margin lm-generic coo-input" maxlength="2" min="0">
+        <input type="number" placeholder="y" class="add-margin lm-generic coo-input" maxlength="2" min="0">
         <button id="focus-button" class="add-margin lm-generic butt-generic"
             title="Centers the cell with the given coordinates" onclick="centerCanvas()">
             <span class="lm-generic bold-txt norm-txt butt-txt">Focus</span>

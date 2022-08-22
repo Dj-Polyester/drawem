@@ -15,55 +15,38 @@ const cellFillStyleRgb = hex2rgb(CELL_FILL_STYLE);
 var clamp = (num, min, max) => (num < min) ? min : ((num > max) ? max : num);
 var clampRGB = (num) => clamp(num, 0, 255);
 
-function rgbString2rgb(rgbString) {
-    const rgbArr = rgbString.slice(4, rgbString.length - 1).split(",").map(x => parseInt(x));
-    return {
-        r: rgbArr[0],
-        g: rgbArr[1],
-        b: rgbArr[2],
-    };
-}
-function hslString2hsl(hslString) {
-    const hslArr = hslString.slice(4, hslString.length - 1).split(",").map(x => parseInt(x));
-    return {
-        h: hslArr[0],
-        s: hslArr[1],
-        l: hslArr[2],
-    };
-}
+var colorString2arr = (rgbString) => rgbString.slice(4, rgbString.length - 1).split(",").map(x => parseInt(x));
+
+var rgb2rgbString = (rgb) => `rgb(${rgb.join(",")})`;
+var hsl2hslString = (hsl) => `hsl(${hsl[0]},${hsl[1]}%,${hsl[2]}%)`;
 
 function hex2rgb(hex) {
-    return {
-        r: parseInt("0x" + hex.slice(1, 3)),
-        g: parseInt("0x" + hex.slice(3, 5)),
-        b: parseInt("0x" + hex.slice(5, 7)),
+    const rgb = new Array((hex.length - 1) / 2).fill(0);
+    for (let i = 1; i < hex.length; i += 2) {
+        rgb[(i - 1) / 2] = parseInt("0x" + hex.slice(i, i + 2));
     }
+    return rgb;
 }
-function rgb2hex(rgb) {
-    var r = rgb.r.toString(16);
-    var g = rgb.g.toString(16);
-    var b = rgb.b.toString(16);
-    if (r.length === 1) r = "0" + r;
-    if (g.length === 1) g = "0" + g;
-    if (b.length === 1) b = "0" + b;
-    return "#" + r + g + b;
-}
+var rgb2hex = (rgb) => "#" + rgb.map(
+    function (elem) {
+        const tmp = elem.toString(16);
+        return (tmp.length === 1) ? "0" + tmp : tmp;
+    }).join("");
 
 //COLOR ARITHMETICS
 function add(rgb1, rgb2) {
-    return {
-        r: rgb1.r + rgb2.r,
-        g: rgb1.g + rgb2.g,
-        b: rgb1.b + rgb2.b,
-    };
+    return [
+        rgb1[0] + rgb2[0],
+        rgb1[1] + rgb2[1],
+        rgb1[2] + rgb2[2],
+    ];
 }
-
 function subtract(rgb1, rgb2) {
-    return {
-        r: rgb1.r - rgb2.r,
-        g: rgb1.g - rgb2.g,
-        b: rgb1.b - rgb2.b,
-    };
+    return [
+        rgb1[0] - rgb2[0],
+        rgb1[1] - rgb2[1],
+        rgb1[2] - rgb2[2],
+    ];
 }
 
 function str2coo(str) {

@@ -2,30 +2,52 @@
 // var colors = document.getElementsByClassName("color-input");
 
 var hexInput = document.getElementsByClassName("hex-input")[0];
-var colorInputs = document.getElementsByClassName("color-input");
+var rgbInputs = document.getElementsByClassName("rgb-input");
+var hslInputs = document.getElementsByClassName("hsl-input");
 
 var colorPicker = new iro.ColorPicker('#picker', { width: 200 });
 
 function setColors(color) {
     hexInput.value = color.hexString;
-    const rgb = rgbString2rgb(color.rgbString);
-    colorInputs[0].value = rgb.r;
-    colorInputs[1].value = rgb.g;
-    colorInputs[2].value = rgb.b;
-    const hsl = hslString2hsl(color.hslString);
-    colorInputs[3].value = hsl.h;
-    colorInputs[4].value = hsl.s;
-    colorInputs[5].value = hsl.l;
+    const rgb = colorString2arr(color.rgbString);
+    for (let i = 0; i < 3; ++i) {
+        rgbInputs[i].value = rgb[i];
+    }
+    const hsl = colorString2arr(color.hslString);
+    for (let i = 0; i < 3; ++i) {
+        hslInputs[i].value = hsl[i];
+    }
     currentColor = color;
 }
 
 setColors(colorPicker.color);
 colorPicker.on('color:change', function (color) {
     setColors(color);
-    console.log(color.hslString);
 });
 
 canvas.addEventListener("click", function (event) {
     fillCellOnCanvas(cellpos, currentColor);
     setDrawingColor(cellpos, currentColor);
-})
+});
+hexInput.addEventListener("input", function (event) {
+    const hexTxt = hexInput.value;
+    if (hexTxt.length === 7) {
+        colorPicker.addColor(hexTxt);
+        colorPicker.removeColor(0);
+    }
+});
+
+[...rgbInputs].forEach(rgbInput => {
+    rgbInput.addEventListener("input", function (event) {
+        const rgb = [...rgbInputs].map(elem => elem.value);
+        colorPicker.addColor(rgb2rgbString(rgb));
+        colorPicker.removeColor(0);
+    });
+});
+[...hslInputs].forEach(hslInput => {
+    hslInput.addEventListener("input", function (event) {
+        const hsl = [...hslInputs].map(elem => elem.value);
+        colorPicker.addColor(hsl2hslString(hsl));
+        colorPicker.removeColor(0);
+    });
+});
