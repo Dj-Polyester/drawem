@@ -1,0 +1,19 @@
+const CELL_FILL_STYLE = "#cccccc";
+const GRID_STROKE_STYLE = "#cccccc";
+const HALF_MOUSE_HEIGHT = 16;
+
+var canvas = document.getElementsByTagName("canvas")[0];
+var ctx = canvas.getContext("2d");
+var cellWidth = 10;
+var cellHeight = 10;
+var currentColor = undefined;
+var cellpos = undefined;
+canvas.width = 1000;
+canvas.height = 1000;
+var drawing = {};
+const canvasBackColor = rgbString2hex(window.getComputedStyle(canvas, null).backgroundColor);
+const canvasBackColorRgb = hex2rgb(canvasBackColor);
+const cellFillStyleRgb = hex2rgb(CELL_FILL_STYLE);
+var hexInput = document.getElementsByClassName("hex-input")[0];
+var rgbInputs = document.getElementsByClassName("rgb-input");
+var hslInputs = document.getElementsByClassName("hsl-input");

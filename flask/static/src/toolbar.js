@@ -1,12 +1,4 @@
 
-// var colors = document.getElementsByClassName("color-input");
-
-var hexInput = document.getElementsByClassName("hex-input")[0];
-var rgbInputs = document.getElementsByClassName("rgb-input");
-var hslInputs = document.getElementsByClassName("hsl-input");
-
-var colorPicker = new iro.ColorPicker('#picker', { width: 200 });
-
 function setColors(color) {
     hexInput.value = color.hexString;
     const rgb = colorString2arr(color.rgbString);
@@ -20,14 +12,15 @@ function setColors(color) {
     currentColor = color;
 }
 
-setColors(colorPicker.color);
 colorPicker.on('color:change', function (color) {
     setColors(color);
 });
 
 canvas.addEventListener("click", function (event) {
-    fillCellOnCanvas(cellpos, currentColor);
-    setDrawingColor(cellpos, currentColor);
+    if (currentColor !== canvasBackColor) {
+        fillCellOnCanvas(cellpos, currentColor);
+        setDrawingColor(cellpos, currentColor);
+    }
 });
 hexInput.addEventListener("input", function (event) {
     const hexTxt = hexInput.value;

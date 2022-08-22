@@ -28,25 +28,7 @@
 </head>
 
 <body>
-    <div id="options" class="nav lnav">
-        <div class="options">
-            <span class="lm-generic semi-large-txt nav-lm" href="">Themes</span>
-            <a class="lm-generic bold-txt nav-sub-lm" href="">Default</a>
-            <a class="lm-generic bold-txt nav-sub-lm" href="">Dark</a>
-        </div>
-    </div>
-    <div id="langs" class="nav rnav">
-        <div class="options">
-            <a class="lm-generic semi-large-txt nav-lm" href="#">Languages</a>
-            <a class="lm-generic bold-txt nav-sub-lm" href="#">English</a>
-            <a class="lm-generic bold-txt nav-sub-lm" href="#">Japanese</a>
-            <a class="lm-generic bold-txt nav-sub-lm" href="#">Turkish</a>
-        </div>
-    </div>
     <header class="container top-panel panel">
-        <div title="Options" id="opt-butt">
-            <div id="hamburg-logo"></div>
-        </div>
         {% block panel %}{% endblock %}
     </header>
 
@@ -56,9 +38,8 @@
         <a href="" class="add-margin lm-generic mini-txt bold-txt">TERMS</a>
         <a href="" class="add-margin lm-generic mini-txt bold-txt">CONTACT</a>
     </footer>
-    <script src="{{ url_for('static', filename = 'src/constants.js') }}"></script>
-    <script src="{{ url_for('static', filename = 'src/main.js') }}"></script>
     {% block script %}{% endblock %}
+    <script src="{{ url_for('static', filename = 'src/main.js') }}"></script>
 </body>
 
 </html>

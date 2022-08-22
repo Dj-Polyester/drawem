@@ -66,8 +66,4 @@ canvas.addEventListener("mouseout", function (event) {
     eraseCellOnCanvas();
 })
 
-window.onload = async function () {
-    addGridOnCanvas();
-}
-
 

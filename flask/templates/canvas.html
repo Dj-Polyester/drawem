@@ -48,10 +48,12 @@
 {% endblock %}
 
 {% block script %}
+<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+<script src="{{ url_for('static', filename='src/color.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas_globals.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas_hover.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas_drag.js') }}"></script>
 <script src="{{ url_for('static', filename='src/canvas_zoom.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 <script src="{{ url_for('static', filename='src/toolbar.js') }}"></script>
 {% endblock %}
