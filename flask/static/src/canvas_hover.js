@@ -15,33 +15,49 @@ function setHint(pos) {
 
 function eraseCellOnCanvas() {
     const prevCellPos = getCellPosOnCanvas({ x: startingx, y: startingy });
-    if (getDrawingColor(prevCellPos) === undefined) {
+    const prevColor = getDrawingColor(prevCellPos);
+    if (prevColor === undefined) {
         ctx.fillStyle = canvasBackColor;
     }
     else {
-        ctx.fillStyle = getDrawingColor(prevCellPos);
+        ctx.fillStyle = prevColor;
     }
     ctx.fillRect(startingx + 1, startingy + 1, cellWidth - 2, cellHeight - 2);
 }
 
-function fillCellOnCanvas(cellpos, color) {
+function fillCellOnCanvasSetup(cellpos) {
 
     if (startingx != undefined && startingy != undefined) {
         eraseCellOnCanvas();
     }
+    const currColor = getDrawingColor(cellpos);
+    if (currColor === undefined)
+        return CELL_FILL_STYLE;
 
+    currColorRgb = hex2rgb(currColor);
+
+    const resultRgb = add(subtract(currColorRgb, canvasBackColorRgb), cellFillStyleRgb);
+    return rgb2hex(
+        {
+            r: clampRGB(resultRgb.r),
+            g: clampRGB(resultRgb.g),
+            b: clampRGB(resultRgb.b),
+        }
+    );
+}
+function fillCellOnCanvas(cellpos, color) {
     startingx = cellpos.x * cellWidth;
     startingy = cellpos.y * cellHeight;
 
     ctx.fillStyle = color;
     ctx.fillRect(startingx + 1, startingy + 1, cellWidth - 2, cellHeight - 2);
 }
-
 canvas.addEventListener("mousemove", function (event) {
     const mousePos = getMousePos(event);
     const mousePosOnCanvas = getMousePosOnCanvas(event);
     cellpos = getCellPosOnCanvas(mousePosOnCanvas);
-    fillCellOnCanvas(cellpos, CELL_FILL_STYLE);
+    const color = fillCellOnCanvasSetup(cellpos);
+    fillCellOnCanvas(cellpos, color);
     setHint(mousePos, cellpos);
 })
 

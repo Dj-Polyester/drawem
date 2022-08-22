@@ -9,9 +9,23 @@
 {% block body %}
 <div class="toolbar lm-generic container">
     <div id="picker" class="add-margin"></div>
-    <span class="add-margin lm-generic colors">HEX:</span>
-    <span class="add-margin lm-generic colors">RGB:</span>
-    <span class="add-margin lm-generic colors">HSL:</span>
+    <div class="colors">
+        <span class="add-margin lm-generic">HEX:</span>
+        <input type="text" class="add-margin lm-generic hex-input" maxlength="7">
+    </div>
+    <div class="colors">
+        <span class="add-margin lm-generic">RGB:</span>
+        <input type="text" placeholder="R" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="text" placeholder="G" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="text" placeholder="B" class="add-margin lm-generic color-input" maxlength="3">
+    </div>
+    <div class="colors">
+        <span class="add-margin lm-generic">HSL:</span>
+        <input type="text" placeholder="H" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="text" placeholder="S%" class="add-margin lm-generic color-input" maxlength="3">
+        <input type="text" placeholder="L%" class="add-margin lm-generic color-input" maxlength="3">
+    </div>
+
     <div id="coordinates" class="add-margin">
         <input type="text" placeholder="x" class="add-margin lm-generic top-panel-input" maxlength="2">
         <input type="text" placeholder="y" class="add-margin lm-generic top-panel-input" maxlength="2">
