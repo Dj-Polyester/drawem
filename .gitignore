@@ -1,0 +1,4 @@
+test
+*.ipynb
+*.css*
+__pycache__

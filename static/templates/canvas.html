@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/canvas.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/toolbar.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="toolbar lm-generic container">
+    <div id="picker" class="add-margin"></div>
+    <div class="colors">
+        <span class="add-margin lm-generic">HEX:</span>
+        <input type="text" class="add-margin lm-generic hex-input" maxlength="7">
+    </div>
+    <div class="colors">
+        <span class="add-margin lm-generic">RGB:</span>
+        <input type="number" placeholder="R" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
+        <input type="number" placeholder="G" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
+        <input type="number" placeholder="B" class="add-margin lm-generic color-input rgb-input" maxlength="3" min="0"
+            max="255">
+    </div>
+    <div class="colors">
+        <span class="add-margin lm-generic">HSL:</span>
+        <input type="number" placeholder="H" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="360">
+        <input type="number" placeholder="S%" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="100">
+        <input type="number" placeholder="L%" class="add-margin lm-generic color-input hsl-input" maxlength="3" min="0"
+            max="100">
+    </div>
+
+    <div id="coordinates" class="add-margin">
+        <input type="number" placeholder="x" class="add-margin lm-generic coo-input" maxlength="2" min="0">
+        <input type="number" placeholder="y" class="add-margin lm-generic coo-input" maxlength="2" min="0">
+        <button id="focus-button" class="add-margin lm-generic butt-generic"
+            title="Centers the cell with the given coordinates" onclick="centerCanvas()">
+            <span class="lm-generic bold-txt norm-txt butt-txt">Focus</span>
+        </button>
+    </div>
+</div>
+
+
+<canvas class="canvas"></canvas>
+<div class="hint add-padding lm-generic light-emph-txt mini-txt container"></div>
+{% endblock %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+<script src="{{ url_for('static', filename='src/canvas/color.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/canvas_globals.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/canvas.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/canvas_hover.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/canvas_drag.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/canvas_zoom.js') }}"></script>
+<script src="{{ url_for('static', filename='src/canvas/toolbar.js') }}"></script>
+{% endblock %}

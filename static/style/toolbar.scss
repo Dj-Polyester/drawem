@@ -1,0 +1,31 @@
+@import "theme1/constants";
+
+
+.toolbar {
+    position: fixed;
+    top: $toolbar-padding+$top-panel-height;
+    left: $toolbar-padding;
+    z-index: 2;
+}
+
+.hex-input {
+    width: 7ch;
+}
+
+.color-input {
+    width: 6ch;
+}
+
+.coo-input {
+    width: 6ch;
+}
+
+.colors {
+    width: 100%;
+}
+
+#coordinates {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}

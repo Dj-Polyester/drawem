@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/signin.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div id="tmp-container">
+    <div id="profind-logo">
+        <img src="{{ url_for('static', filename='icons/profind.png') }}" width="312" height="130" />
+    </div>
+    <div id="form-container" class="containerrbig">
+        <span class="add-margin lm-generic large-txt no-emph-txt" id="signin-txt-this">Sign up</span>
+        <div id="formtmp-container">
+            <form name="signup-form" id="form1" enctype="multipart/form-data" method="POST">
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" for="username">Username</label>
+                <input name="username" class="add-margin lm-generic" type="text" id="username-input"
+                    onfocus="removeAlert(usernameInput, usernameSpan)" />
+                <span class="add-margin lm-generic no-emph-txt mini-txt invalid-credentials" id="username-span"></span>
+
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" for="email">Email</label>
+                <input name="email" class="add-margin lm-generic" type="email" id="email-input"
+                    onfocus="removeAlert(emailInput, emailSpan)" />
+                <span class="add-margin lm-generic no-emph-txt mini-txt invalid-credentials" id="email-span"></span>
+
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" for="password">Password</label>
+                <input name="password" class="add-margin lm-generic" type="password" id="password-input"
+                    onfocus="removeAlert(passwdInput, passwdSpan)" />
+                <span class="add-margin lm-generic no-emph-txt mini-txt invalid-credentials" id="password-span"></span>
+
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" for="retry-password">Retry
+                    password</label>
+                <input name="retry-password" class="add-margin lm-generic" type="password" id="retry-password-input"
+                    onfocus="removeAlert(retryPasswdInput, retryPasswdSpan)" />
+                <span class="add-margin lm-generic no-emph-txt mini-txt invalid-credentials"
+                    id="retry-password-span"></span>
+
+                <ul class="add-margin lm-generic no-emph-txt mini-txt">
+                    <li>The password should contain at least
+                        one</li>
+                    <ul class="add-margin lm-generic no-emph-txt mini-txt">
+                        <li>uppercase letter</li>
+                        <li>lowercase letter</li>
+                        <li>special character</li>
+                        <li>number</li>
+                    </ul>
+                    <li>The password should have between 8 and
+                        20 characters</li>
+                </ul>
+                <button id="signup-btn" class="add-margin lm-generic butt-generic" type="submit">
+                    <span class="lm-generic bold-txt norm-txt butt-txt">Register</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='src/signup/signup_globals.js') }}"></script>
+<script src="{{ url_for('static', filename='src/signup/signup.js') }}"></script>
+{% endblock %}

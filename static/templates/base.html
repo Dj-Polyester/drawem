@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ProFind</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/normalize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/base.css') }}" />
+    {% block style %}{% endblock %}
+
+    <link rel="icon" href="{{ url_for('static', filename = 'icons/p.png') }}" />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!--keywords-->
+    <!-- <meta name="keywords" content="dasdsda" /> -->
+    <!--desc-->
+    <!-- <meta name="description" content="dasdsda" /> -->
+    <!--define an author-->
+    <!-- <meta name="author" content="Jane Doe" /> -->
+    <!--refresh doc every 30 secs-->
+    <!-- <meta http-equiv="refresh" content="30" /> -->
+    <!--set viewport-->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <!--tell the web crawler what to do-->
+    <meta name="robots" content="index,follow" />
+</head>
+
+<body>
+    <!-- <header class="container top-panel panel">
+        {% block panel %}{% endblock %}
+    </header> -->
+
+    {% block body %}{% endblock %}
+    <footer class="bottom-panel panel">
+        <a href="" class="add-margin lm-generic mini-txt bold-txt">HOME</a>
+        <a href="" class="add-margin lm-generic mini-txt bold-txt">TERMS</a>
+        <a href="" class="add-margin lm-generic mini-txt bold-txt">CONTACT</a>
+    </footer>
+    {% block script %}{% endblock %}
+</body>
+
+</html>

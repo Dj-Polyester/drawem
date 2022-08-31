@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/signin.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div id="tmp-container">
+    <div id="profind-logo">
+        <img src="{{ url_for('static', filename='icons/profind.png') }}" width="312" height="130" />
+    </div>
+    <div id="form-container" class="containerrbig">
+        <span class="add-margin lm-generic large-txt no-emph-txt" id="signin-txt-this">Sign in</span>
+        <div id="formtmp-container">
+            <form name="signin-form" id="form1" enctype="multipart/form-data" method="POST">
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" for="username">Username</label>
+                <input name="username" class="add-margin lm-generic" type="text" id="username" />
+                <label for="password"><span class="add-margin lm-generic norm-txt no-emph-txt bold-txt">Password</span>
+                    <a href="" class="add-margin lm-generic mini-txt bold-txt" id="fgt-psswd-txt">Forgot password?</a>
+                </label>
+                <input name="password" class="add-margin lm-generic" type="password" id="password" />
+                <button id="signin-btn" class="add-margin lm-generic butt-generic" type="submit">
+                    <span class="lm-generic bold-txt norm-txt butt-txt">Sign in</span>
+                </button>
+            </form>
+            <div id="form2-container">
+                <label class="add-margin lm-generic norm-txt no-emph-txt bold-txt" id="signin-txt-others">Sign in
+                    with</label>
+                <form id="form2">
+                    <button class="add-margin lm-generic butt-generic signin-butt-others" type="submit">
+                        <img class="signin-img" src="{{ url_for('static', filename='icons/gicon_white.svg') }}" />
+                        <span class="lm-generic bold-txt norm-txt butt-txt">Google</span>
+                    </button>
+                    <button class="add-margin lm-generic butt-generic signin-butt-others" type="submit">
+                        <img class="signin-img" src="{{ url_for('static', filename='icons/ficon_white.svg') }}" />
+                        <span class="lm-generic bold-txt norm-txt butt-txt">Facebook</span>
+                    </button>
+                    <button class="add-margin lm-generic butt-generic signin-butt-others" type="submit">
+                        <img class="signin-img" src="{{ url_for('static', filename='icons/ticon_white.svg') }}" />
+                        <span class="lm-generic bold-txt norm-txt butt-txt">Twitter</span>
+                    </button>
+                </form>
+
+                <label class="add-margin lm-generic norm-txt no-emph-txt" id="signup-txt">Don't have an account?
+                    <a href="{{ url_for('signupRoute') }}" class="bold-txt">Sign up</a>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='src/signin/signin_globals.js') }}"></script>
+<script src="{{ url_for('static', filename='src/signin/signin.js') }}"></script>
+{% endblock %}
